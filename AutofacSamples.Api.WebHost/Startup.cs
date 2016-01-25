@@ -16,28 +16,12 @@ namespace AutofacSamples.Api.WebHost
       var config = new HttpConfiguration();
       WebApiConfig.Register(config);
 
-      var container = IoCSetup();
-      config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
+      var container = IoCConfig.Register(config);
+
       app.UseAutofacMiddleware(container);
       app.UseAutofacWebApi(config);
 
       app.UseWebApi(config);
-    } 
-
-    #endregion
-
-    #region Internals
-
-    IContainer IoCSetup()
-    {
-      var builder = new ContainerBuilder();
-
-      builder.RegisterApiControllers(typeof(SamplesController).Assembly);
-      builder.RegisterType<SamplesService>()
-             .As<ISamplesService>()
-             .InstancePerRequest();
-
-      return builder.Build();
     } 
 
     #endregion
