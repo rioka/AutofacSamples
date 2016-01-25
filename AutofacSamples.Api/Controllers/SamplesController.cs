@@ -5,19 +5,28 @@ namespace AutofacSamples.Api.Controllers
 {
   public class SamplesController : ApiController
   {
-    private readonly ISamplesService _samplesService;
+    #region Data
 
-    public SamplesController() : this(new SamplesService())
-    {}
+    private readonly ISamplesService _samplesService; 
+    
+    #endregion
+
+    #region Constructors
 
     public SamplesController(ISamplesService samplesService)
     {
       _samplesService = samplesService;
-    }
+    } 
 
+    #endregion
+
+    #region Apis
+    
     public IHttpActionResult Get()
     {
       return Ok(_samplesService.Get());
-    }
+    } 
+
+    #endregion
   }
 }

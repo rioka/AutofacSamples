@@ -5,6 +5,8 @@ namespace AutofacSamples.Api.WebHost
 {
   public class WebApiConfig
   {
+    #region Apis
+    
     public static void Register(HttpConfiguration config)
     {
       // IMPORTANT: enable Route via method attributes
@@ -20,6 +22,8 @@ namespace AutofacSamples.Api.WebHost
           id = RouteParameter.Optional
         }
       );
-    }
+    } 
+
+    #endregion
   }
 }

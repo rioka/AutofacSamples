@@ -5,7 +5,11 @@ namespace AutofacSamples.Api.Services
 {
   public interface ISamplesService
   {
-    IEnumerable<Guid> Get();
+    #region Apis
+
+    IEnumerable<Guid> Get(); 
+    
+    #endregion
   }
 
 }
